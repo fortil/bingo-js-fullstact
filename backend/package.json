@@ -1,0 +1,28 @@
+{
+  "name": "bingo-backend",
+  "version": "0.0.1",
+  "description": "bingo backend game",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "bingo",
+    "nodejs",
+    "express"
+  ],
+  "author": "William Penagos <billalpeza@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.0",
+    "express": "^4.17.1",
+    "lodash": "^4.17.15",
+    "lodash.get": "^4.4.2",
+    "lowdb": "^1.0.0",
+    "shortid": "^2.2.15",
+    "sqlite3": "^4.1.1"
+  }
+}
