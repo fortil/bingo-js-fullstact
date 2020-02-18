@@ -48,7 +48,6 @@ const playAgain = db => (req, res) => {
 
 const checkWinner = db => (req, res) => {
   let numbers = req.body.numbers ? req.body.numbers : null;
-  console.log('====>', req.body.numbers)
   
   if (!numbers || !numbers.length) {
     res.json({ data: 'loser', time: (new Date()).getTime() });
