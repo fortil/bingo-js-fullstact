@@ -1,5 +1,5 @@
 const createNewBingoNumber = (list) => {
-  const bingoNumbers = new Array(75).fill(1).map((_, i) => i + 1);
+  const bingoNumbers = new Array(75).fill(1).map((_, i) => i + 1).filter(e => !list.includes(e));
   const numResponse = bingoNumbers[Math.floor(Math.random() * bingoNumbers.length)];
   if (!list.includes(numResponse)) {
     return numResponse;
@@ -52,9 +52,10 @@ const checkWinner = db => (req, res) => {
   if (!numbers || !numbers.length) {
     res.json({ data: 'loser', time: (new Date()).getTime() });
   } else {
-    numbers = numbers.sort();
     const dbNumbers = (db.get('numbers').value()).sort();
-    if (JSON.stringify(numbers)===JSON.stringify(dbNumbers)) {
+
+    const count = dbNumbers.filter(n => numbers.includes(n));
+    if (count.length >= 24) {
       res.json({ data: 'winner', time: (new Date()).getTime() });
     } else {
       res.json({ data: 'loser', time: (new Date()).getTime() });

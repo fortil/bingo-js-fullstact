@@ -34,7 +34,7 @@ const createCard = (db) => {
 
     for (let i = 0; i < bingoKeys.length; i++) {
       const numbers = card[bingoKeys[i]];
-      card[bingoKeys[i]] = numbers.sort();
+      card[bingoKeys[i]] = numbers.sort((a, b) => a - b);
       if (bingoKeys[i] === 'n') {
         card[bingoKeys[i]][2] = null;
       }
