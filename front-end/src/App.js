@@ -37,7 +37,6 @@ function App() {
   const [card, setCard] = useState(null);
   const [numbers, setNumbers] = useState([]);
   const [couldWin, setCouldWin] = useState(false);
-  const [ImWinner, setImWinner] = useState(false);
   const [ownNumbers, setOwnNumbers] = useState([]);
 
   const click = () => {
@@ -67,7 +66,6 @@ function App() {
       },
       body: JSON.stringify({ numbers: ownNumbers })
     }).then(r => r.json()).then(({ data }) => {
-      setImWinner(data === 'winner');
       if (data === 'winner') {
         window.alert('You won!!!');
       } else {
@@ -79,7 +77,6 @@ function App() {
           'Content-Type': 'application/json',
         },
       }).then(r => r.json()).then(() => {
-        setImWinner(false);
         setOwnNumbers([]);
         setCouldWin(false);
         setNumbers([]);
